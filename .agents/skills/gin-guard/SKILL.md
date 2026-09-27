@@ -5,7 +5,7 @@ description: Use when wiring guard-core-go security into a Go Gin service, or wh
 
 # gin-guard
 
-Gin middleware adapter for [guard-core-go](https://github.com/rennf93/guard-core-go). Translates `*gin.Context` into the guardcore request surface, runs the engine, and translates verdicts to exact Gin responses (status, headers, body, then abort). Contains no security logic itself. Module: `github.com/rennf93/gin-guard`, Go `1.25.0`, no release tag yet.
+Gin middleware adapter for [guard-core-go](https://github.com/rennf93/guard-core-go). Translates `*gin.Context` into the guardcore request surface, runs the engine, and translates verdicts to exact Gin responses (status, headers, body, then abort). Contains no security logic itself. Module: `github.com/rennf93/gin-guard`, Go `1.25.0`, released at `v1.1.0`.
 
 ## Quick Reference
 
@@ -22,7 +22,7 @@ Behavior contract: the engine sees at most `MaxBodyBytes` of the body prefix; pa
 ## Installation
 
 ```sh
-go get github.com/rennf93/gin-guard@main github.com/rennf93/guard-core-go/v4@v4.0.4
+go get github.com/rennf93/gin-guard@v1.1.0 github.com/rennf93/guard-core-go/v4@v4.0.5-0.20260926230539-e39ac203568b
 ```
 
 The package name is `gin`, which collides with `github.com/gin-gonic/gin`, so import the adapter with an alias:
