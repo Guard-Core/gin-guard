@@ -62,8 +62,7 @@ func serveWithRouteID(t *testing.T, engine *guardcore.Engine, routeID, target st
 // bans the client once the threshold trips, and the adapter surfaces the
 // engine's 403 "IP address banned" verdict on the next request.
 func TestReachabilityRouteBehaviorUsageRuleBans(t *testing.T) {
-	var engine *guardcore.Engine
-	engine = newTestEngine(t, func(c *guardcore.SecurityConfig) {
+	engine := newTestEngine(t, func(c *guardcore.SecurityConfig) {
 		c.EnableRateLimiting = false
 		c.GlobalBehaviorRules = nil
 	})
