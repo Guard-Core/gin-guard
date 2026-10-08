@@ -5,7 +5,7 @@ description: Use when wiring guard-core-go security into a Go Gin service, or wh
 
 # gin-guard
 
-Gin middleware adapter for [guard-core-go](https://github.com/rennf93/guard-core-go). Translates `*gin.Context` into the guardcore request surface, runs the engine, and translates verdicts to exact Gin responses (status, headers, body, then abort). Contains no security logic itself. Module: `github.com/rennf93/gin-guard`, Go `1.25.0`, released at `v1.1.0`.
+Gin middleware adapter for [guard-core-go](https://github.com/Guard-Core/guard-core-go). Translates `*gin.Context` into the guardcore request surface, runs the engine, and translates verdicts to exact Gin responses (status, headers, body, then abort). Contains no security logic itself. Module: `github.com/rennf93/gin-guard`, Go `1.25.0`, released at `v1.1.0`.
 
 ## Quick Reference
 
@@ -110,5 +110,5 @@ func WithRouteID(ctx context.Context, routeID string) context.Context
 
 ## Related Projects
 
-- [guard-core-go](https://github.com/rennf93/guard-core-go): the engine this adapter wraps. All detection, rate limiting, bans, configuration, and Redis integration live there; import it as `guardcore "github.com/rennf93/guard-core-go/v4/guardcore"`.
-- [nethttp-guard](https://github.com/rennf93/nethttp-guard): the sibling net/http adapter with the same surface and behavior contract.
+- [guard-core-go](https://github.com/Guard-Core/guard-core-go): the engine this adapter wraps. All detection, rate limiting, bans, configuration, and Redis integration live there; import it as `guardcore "github.com/rennf93/guard-core-go/v4/guardcore"`.
+- [nethttp-guard](https://github.com/Guard-Core/nethttp-guard): the sibling net/http adapter with the same surface and behavior contract.

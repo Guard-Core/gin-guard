@@ -1,8 +1,8 @@
 # gin-guard simple app
 
 A minimal guarded Gin server in a single `main.go`, wired to the
-[guard-core-go](https://github.com/rennf93/guard-core-go) engine through the
-[gin-guard](https://github.com/rennf93/gin-guard) adapter middleware. It shows
+[guard-core-go](https://github.com/Guard-Core/guard-core-go) engine through the
+[gin-guard](https://github.com/Guard-Core/gin-guard) adapter middleware. It shows
 the canonical wiring and what the adapter does for you: request translation,
 bounded body scanning with body replay, exact verdict translation (status,
 headers, body, abort), and fail-closed 500s on engine malfunction.
@@ -77,7 +77,7 @@ Inline comments in `main.go` walk through every knob used:
 - Redis via `REDIS_URL` / `REDIS_PREFIX` (compose wires Redis in; without it
   the managers fall back to in-process state)
 - The `OnBlock` hook: the telemetry seam for wiring
-  [guard-agent-go](https://github.com/rennf93/guard-agent-go) (comment-level
+  [guard-agent-go](https://github.com/Guard-Core/guard-agent-go) (comment-level
   guidance in `main.go`; agent integration is not implemented in the engine
   port yet, and `EnableAgent` fails config validation)
 

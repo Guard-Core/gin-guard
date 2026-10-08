@@ -3,7 +3,7 @@ Guidance for AI agents (including Claude Code) working in this repository.
 
 ## Project Overview
 
-gin-guard is a Gin middleware adapter for [guard-core-go](https://github.com/rennf93/guard-core-go). It translates `*gin.Context` into the guardcore request surface, runs the engine, and translates verdicts to exact Gin responses. It contains NO security logic of its own.
+gin-guard is a Gin middleware adapter for [guard-core-go](https://github.com/Guard-Core/guard-core-go). It translates `*gin.Context` into the guardcore request surface, runs the engine, and translates verdicts to exact Gin responses. It contains NO security logic of its own.
 
 - Module: `github.com/rennf93/gin-guard`, Go directive `go 1.25.0`, MIT license.
 - Single Go package `gin` at the repo root. Source files: `middleware.go`, `request.go`. Tests: `middleware_test.go`, `integration_test.go`. There are no subpackage directories.
@@ -32,7 +32,7 @@ This repo is the ADAPTER layer of the guard-core ecosystem:
 ## Quick Start
 
 ```sh
-git clone https://github.com/rennf93/gin-guard
+git clone https://github.com/Guard-Core/gin-guard
 cd gin-guard
 go build ./...
 go test ./...
@@ -145,5 +145,5 @@ CI runs the test job on a Go matrix of `1.25.x` and `1.26.x` (fail-fast disabled
 
 ## Related Projects
 
-- [guard-core-go](https://github.com/rennf93/guard-core-go): the engine this adapter wraps. All security logic, configuration, verdicts, and Redis integration live there. Import it as `guardcore "github.com/rennf93/guard-core-go/v4/guardcore"`.
-- [nethttp-guard](https://github.com/rennf93/nethttp-guard): the sibling net/http adapter with the same surface and behavior contract; keep the two adapters behaviorally aligned.
+- [guard-core-go](https://github.com/Guard-Core/guard-core-go): the engine this adapter wraps. All security logic, configuration, verdicts, and Redis integration live there. Import it as `guardcore "github.com/rennf93/guard-core-go/v4/guardcore"`.
+- [nethttp-guard](https://github.com/Guard-Core/nethttp-guard): the sibling net/http adapter with the same surface and behavior contract; keep the two adapters behaviorally aligned.

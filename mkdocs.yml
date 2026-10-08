@@ -1,8 +1,8 @@
 site_name: gin-guard
 site_description: guard-core-go security middleware for Gin
 site_author: Renn F
-repo_url: https://github.com/rennf93/gin-guard
-repo_name: rennf93/gin-guard
+repo_url: https://github.com/Guard-Core/gin-guard
+repo_name: Guard-Core/gin-guard
 
 theme:
   name: material
