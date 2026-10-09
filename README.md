@@ -1,8 +1,59 @@
-# gin-guard
+<p align="center">
+    <a href="https://guard-core.github.io/guard-core/latest/">
+        <img src="https://guard-core.github.io/guard-core/latest/assets/guard_core_legend.svg" alt="Guard Core">
+    </a>
+</p>
 
-Gin middleware adapter for [guard-core-go](https://github.com/Guard-Core/guard-core-go). Translates `*gin.Context` into the guardcore request surface, runs the engine, and translates verdicts to exact Gin responses (status, headers, body, then abort). Works with any `gin.Engine` or `gin.RouterGroup` chain via `router.Use`.
+___
 
-Docs: <https://guard-core.github.io/gin-guard/>
+<p align="center">
+    <strong>Gin middleware adapter for [guard-core-go](https://github.com/Guard-Core/guard-core-go). Translates `*gin.Context` into the guardcore request surface, runs the engine, and translates verdicts to exact Gin responses (status, headers, body, then abort). Works with any `gin.Engine` or `gin.RouterGroup` chain via `router.Use`.</strong>
+</p>
+
+<p align="center">
+    <a href="https://github.com/Guard-Core/gin-guard/releases">
+        <img src="https://img.shields.io/github/v/tag/Guard-Core/gin-guard?label=release&color=0080ff" alt="Release tag">
+    </a>
+    <a href="https://guard-core.github.io/gin-guard/latest/">
+        <img src="https://img.shields.io/badge/docs-latest-0080ff.svg" alt="Docs">
+    </a>
+    <a href="https://github.com/Guard-Core/gin-guard/actions/workflows/release.yml">
+        <img src="https://github.com/Guard-Core/gin-guard/actions/workflows/release.yml/badge.svg" alt="Release">
+    </a>
+    <a href="https://opensource.org/licenses/MIT">
+        <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License">
+    </a>
+    <a href="https://github.com/Guard-Core/gin-guard/actions/workflows/ci.yml">
+        <img src="https://github.com/Guard-Core/gin-guard/actions/workflows/ci.yml/badge.svg" alt="CI">
+    </a>
+    <a href="https://github.com/Guard-Core/gin-guard/actions/workflows/code-ql.yml">
+        <img src="https://github.com/Guard-Core/gin-guard/actions/workflows/code-ql.yml/badge.svg" alt="CodeQL">
+    </a>
+</p>
+
+<p align="center">
+    <a href="https://github.com/Guard-Core/gin-guard/actions/workflows/pages/pages-build-deployment">
+        <img src="https://github.com/Guard-Core/gin-guard/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages" alt="PagesBuildDeployment">
+    </a>
+    <a href="https://github.com/Guard-Core/gin-guard/actions/workflows/docs.yml">
+        <img src="https://github.com/Guard-Core/gin-guard/actions/workflows/docs.yml/badge.svg" alt="DocsUpdate">
+    </a>
+    <img src="https://img.shields.io/github/last-commit/Guard-Core/gin-guard?style=flat&amp;logo=git&amp;logoColor=white&amp;color=0080ff" alt="last-commit">
+</p>
+
+<p align="center">
+    <img src="https://img.shields.io/badge/Gin-00EC7D.svg?style=flat" alt="Gin">
+</p>
+
+<p align="center">
+    <a href="https://guard-core.com">Website</a> &middot;
+    <a href="https://guard-core.github.io/gin-guard/latest/">Docs</a> &middot;
+    <a href="https://playground.guard-core.com">Playground</a> &middot;
+    <a href="https://app.guard-core.com">Dashboard</a> &middot;
+    <a href="https://discord.gg/ZW7ZJbjMkK">Discord</a>
+</p>
+
+---
 
 ## Install
 
