@@ -1,4 +1,5 @@
 site_name: gin-guard
+site_url: https://guard-core.github.io/gin-guard/
 site_description: guard-core-go security middleware for Gin
 site_author: Renn F
 repo_url: https://github.com/Guard-Core/gin-guard
