@@ -65,8 +65,9 @@ func (m *middleware) wrap(c *ginlib.Context) {
 	// merged on top (the reference _inject_cors_headers runs after the
 	// security-header set, so CORS wins on a shared name) whenever the
 	// request carries an Origin and CORS is enabled.
+	cors := m.engine.CORSResponseHeaders(req)
 	headers := m.engine.ResponseHeaders()
-	for name, value := range m.engine.CORSResponseHeaders(req) {
+	for name, value := range cors {
 		headers[name] = value
 	}
 	for name, value := range headers {
@@ -77,25 +78,52 @@ func (m *middleware) wrap(c *ginlib.Context) {
 	// behavioral phase. The adapter captures the leading response body up
 	// to the configured inspect budget and hands status code plus captured
 	// prefix to the engine after the handler chain ran: return rules never
-	// modify the response.
+	// modify the response. With a CustomResponseModifier configured the
+	// whole response is held instead, so the modifier (the last step of the
+	// reference process_response) can rewrite it before it is sent.
+	var held *heldWriter
+	if m.engine.Config.CustomResponseModifier != nil {
+		held = &heldWriter{ResponseWriter: c.Writer, status: http.StatusOK}
+		c.Writer = held
+	}
 	capture := m.newBodyCapture()
-	if capture != nil {
+	if capture != nil && held == nil {
 		c.Writer = capture.wrap(c.Writer)
 	}
 	c.Next()
-	status := http.StatusOK
-	if c.Writer.Written() {
-		status = c.Writer.Status()
-	}
+	// Writer.Status() is the status the handler chain set (c.Status,
+	// AbortWithStatus or an explicit write), 200 when none was set. A
+	// handler that only calls c.Status(500) never marks the writer
+	// Written(), so gating on Written() reported 200 for it.
+	status := c.Writer.Status()
 	var observedBody []byte
 	if capture != nil {
 		observedBody = capture.body()
+	}
+	if held != nil {
+		if held.hijacked {
+			return
+		}
+		if capture != nil {
+			observedBody = held.body
+			if len(observedBody) > capture.budget {
+				observedBody = observedBody[:capture.budget]
+			}
+		}
+		c.Writer = held.ResponseWriter
 	}
 	m.engine.ProcessResponse(req, &guardcore.Response{
 		StatusCode: status,
 		Headers:    map[string]string{},
 		Body:       observedBody,
 	})
+	if held != nil {
+		held.release(m.engine, &guardcore.Response{
+			StatusCode: status,
+			Headers:    headerSnapshot(c.Writer.Header()),
+			Body:       held.body,
+		}, cors)
+	}
 }
 
 // bodyCapture records the leading bytes of the pass-through response body,
