@@ -4,7 +4,7 @@ go 1.26.0
 
 require (
 	github.com/gin-gonic/gin v1.12.0
-	github.com/rennf93/guard-core-go/v4 v4.3.2
+	github.com/rennf93/guard-core-go/v4 v4.4.0
 )
 
 require (
